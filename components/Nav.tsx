@@ -27,7 +27,7 @@ const signOutHandler: MouseEventHandler<HTMLButtonElement> = async (event) => {
   }
 };
 
-const authButton = () => {
+const AuthButton = () => {
   const [providers, setProviders] = React.useState<ClientSafeProvider[] | null>(
     null
   );
@@ -103,7 +103,7 @@ export const Nav = () => {
             </Link>
           </div>
         ) : (
-          <>{authButton}</>
+          <><AuthButton/></>
         )}
       </div>
 
@@ -150,7 +150,9 @@ export const Nav = () => {
             )}
           </div>
         ) : (
-          <>{authButton}</>
+          <>
+          <AuthButton/>
+          </>
         )}
       </div>
     </nav>
