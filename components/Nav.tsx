@@ -60,7 +60,7 @@ const AuthButton = () => {
 };
 
 export const Nav = () => {
-  const isUserLoggedIn = false;
+  const { data: session } = useSession();
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
   return (
@@ -78,7 +78,7 @@ export const Nav = () => {
 
       {/*Desktop navigation */}
       <div className="sm:flex hidden">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">
               Create Post
@@ -94,7 +94,7 @@ export const Nav = () => {
 
             <Link href="/profile">
               <Image
-                src="/assets/images/logo.svg"
+                src={session?.user?.image ?? "/assets/images/logo.svg"}
                 width={30}
                 height={37}
                 className="rounded-full"
@@ -103,13 +103,15 @@ export const Nav = () => {
             </Link>
           </div>
         ) : (
-          <><AuthButton/></>
+          <>
+            <AuthButton />
+          </>
         )}
       </div>
 
       {/*Mobile navigation */}
       <div className="sm:hidden flex relative">
-        {isUserLoggedIn ? (
+        {session?.user ? (
           <div className="flex">
             <Image
               src="/assets/images/logo.svg"
@@ -151,7 +153,7 @@ export const Nav = () => {
           </div>
         ) : (
           <>
-          <AuthButton/>
+            <AuthButton />
           </>
         )}
       </div>
