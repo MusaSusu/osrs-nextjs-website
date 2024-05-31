@@ -1,5 +1,6 @@
 import { Schema, model, models } from "mongoose";
 import Email from "next-auth/providers/email";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 const UserSchema = new Schema({
     email: {
@@ -16,6 +17,13 @@ const UserSchema = new Schema({
         type: String
     }
 })
+
+export interface UserType {
+    _id: string;
+    email: string;
+    username: string;
+    image : StaticImport; // Optional field
+}
 
 const User = models.User || model("User", UserSchema);
 

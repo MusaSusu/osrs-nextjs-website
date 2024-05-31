@@ -1,4 +1,5 @@
 import { Schema, model, models } from 'mongoose';
+import { UserType } from '@models/user'
 
 const PromptSchema = new Schema({
   creator: {
@@ -16,5 +17,12 @@ const PromptSchema = new Schema({
 });
 
 const Prompt = models.Prompt || model('Prompt', PromptSchema);
+
+export interface PromptType extends Document {
+  _id: string;
+  creator: UserType;
+  prompt: string;
+  tag: string;
+}
 
 export default Prompt;
