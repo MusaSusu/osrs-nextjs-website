@@ -1,8 +1,11 @@
 import React from "react";
-import { PostState } from "@app/create-prompt/page";
 import { Dispatch, SetStateAction } from "react";
 import  Link  from 'next/link';
 
+export interface PostState {
+  prompt: string;
+  tag: string;
+}
 
 export interface FormProps {
   type: string;
