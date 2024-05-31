@@ -12,7 +12,7 @@ export interface FormProps {
   post: PostState;
   setPost: Dispatch<SetStateAction<PostState>>;
   submitting: boolean;
-  handleSubmit: (e: any) => Promise<void>;
+  handleSubmit: (e:React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 export const Form: React.FC<FormProps> = ({type, post, setPost, submitting, handleSubmit}) => {

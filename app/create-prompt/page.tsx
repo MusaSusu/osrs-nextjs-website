@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import { Form, FormProps,PostState } from "@components/Form";
+import { Form, PostState } from "@components/Form";
 
 const CreatePrompt = () => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const CreatePrompt = () => {
   });
 
   const createPrompt = async (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    e: React.FormEvent<HTMLFormElement>
   ) => {
     e.preventDefault();
     setSubmitting(true);
