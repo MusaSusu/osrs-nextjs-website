@@ -1,4 +1,4 @@
-import { Schema, model, models } from "mongoose";
+import mongoose, { Schema, model, models, Document } from "mongoose";
 import Email from "next-auth/providers/email";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
@@ -18,7 +18,7 @@ const UserSchema = new Schema({
     }
 })
 
-export interface UserType {
+export interface UserType extends Document{
     _id: string;
     email: string;
     username: string;

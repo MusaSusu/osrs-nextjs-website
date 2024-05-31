@@ -1,4 +1,4 @@
-import { Schema, model, models } from 'mongoose';
+import { Schema, model, models, Document } from 'mongoose';
 import { UserType } from '@models/user'
 
 const PromptSchema = new Schema({
