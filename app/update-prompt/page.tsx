@@ -1,9 +1,10 @@
-"use client";
+'use client'
 
-import { ReactHTMLElement, useEffect, useState } from "react";
+import { ReactHTMLElement, useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import {Form} from "@components/Form";
+import Loading from "./loading";
 
 const UpdatePrompt = () => {
   const router = useRouter();
@@ -53,13 +54,15 @@ const UpdatePrompt = () => {
   };
 
   return (
-    <Form
-      type='Edit'
-      post={post}
-      setPost={setPost}
-      submitting={submitting}
-      handleSubmit={updatePrompt}
-    />
+    <Suspense fallback={<Loading/>}>
+      <Form
+        type='Edit'
+        post={post}
+        setPost={setPost}
+        submitting={submitting}
+        handleSubmit={updatePrompt}
+      />
+    </Suspense>
   );
 };
 
